@@ -7,10 +7,11 @@ Library    FakerLibrary    locale=pt_BR
 *** Keywords ***
 
 Abrir Navegador
-    Open Browser    browser=chrome  
+    #Open Browser    browser=chrome  
+    Open Browser    https://shogun.qacoders.dev.br/login    chrome
     Set Selenium Implicit Wait    3
     Maximize Browser Window
-    Go To    url=${Urlshogun}
+    #Go To    url=${Urlshogun}
 
 Fechar Navegador
     Close Browser
