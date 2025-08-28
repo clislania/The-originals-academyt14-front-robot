@@ -3,7 +3,7 @@ on:
   [push,workflow_dispatch]
 jobs:
   test:
-    name: API test com Robot Framework
+    name: WEB test com Robot Framework
     runs-on: ubuntu-24.04
     steps:
       - name: Clonar arquivo do repositório
@@ -20,7 +20,7 @@ jobs:
           pip install robotframework-requests
           pip install robotframework-faker
 
-      - name: Executando os testes de API Robot Framework
+      - name: Executando os testes WEB Robot Framework
         run: |
           robot --outputdir logs/ .
 
@@ -46,7 +46,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://clislania.github.io/qacoders-academyt14-api-robot # Substitua pelo seu usuário e repositório
+      url: https://clislania.github.io/The-originals-academyt14-front-robot # Substitua pelo seu usuário e repositório
       
     steps:
       - name: Setup pages
