@@ -7,7 +7,6 @@ Test Teardown    Fechar Navegador
 
 *** Test Cases ***
 CT 01-Realizar login administrativo 
-    Passo 1 - Acessar a pagina de login
     Realizar Login administrativo
     #Verificar se o login foi bem-sucedido
 
@@ -25,13 +24,11 @@ CT 02-Criar novo usuário web
 #     Log    Login realizado com sucesso!
     
 CT 04-Cadastrar nova diretoria 
-    Passo 1 - Acessar a pagina de login
     Realizar login administrativo
     Cadastrar Diretoria
     #Verificar se o cadastro de diretoria foi realizado com sucesso
 
 CT 05-Cadastrar novo Centro de Custo
-    Passo 1 - Acessar a pagina de login
     Realizar login administrativo
     Cadastrar novo centro de custo
     #Verificar se o cadastro de centro custo foi realizado com sucesso

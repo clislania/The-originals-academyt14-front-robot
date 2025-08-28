@@ -7,15 +7,16 @@ Library    FakerLibrary    locale=pt_BR
 *** Keywords ***
 
 Abrir Navegador
-    Open Browser    
-    Set Selenium Implicit Wait    10s
+    Open Browser    browser=chrome  
+    Set Selenium Implicit Wait    3
     Maximize Browser Window
+    Go To    url=${Urlshogun}
 
 Fechar Navegador
     Close Browser
 Passo 1 - Acessar a pagina de login
     #Open Browser    browser=firefox
-    Go To    url=${Urlautomação}
+    Go To    url=${Urlchips}
 
 Realizar Login administrativo
     wait Until Element Is Visible    ${emailInput}
@@ -34,7 +35,6 @@ Verificar se o login foi bem-sucedido
     Log    Login realizado com sucesso!
 
 Realizar novo cadastro de usuário
-    Passo 1 - Acessar a pagina de login
     Realizar Login administrativo
     Sleep    5
     Wait Until Element Is Visible    ${botaoCadastro}
@@ -67,7 +67,6 @@ Verificar se novo cadastro de usuário foi realizado com sucesso
 
 Realizar login com o usuário cadastrado
 #Tentativa de logar com o usuário gerado
-    Passo 1 - Acessar a pagina de login
     Sleep    3
     Wait Until Element Is Visible    ${emailInput}       
     Input Text                       ${emailInput}    ${email_usergerado}
