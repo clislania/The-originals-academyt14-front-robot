@@ -14,6 +14,17 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Install ChromeDriver
+        run: |
+          sudo apt-get install -y chromium-chromedriver
+          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+
+
       - name: Instalar dependências
         run: |
           pip install robotframework
@@ -21,7 +32,7 @@ jobs:
           pip install robotframework-faker
           pip install robotframework-seleniumlibrary
          
-          
+
       - name: Executando os testes WEB Robot Framework
         run: |
           robot --outputdir logs/ .
