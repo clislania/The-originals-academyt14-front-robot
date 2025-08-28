@@ -19,6 +19,9 @@ jobs:
           pip install robotframework
           pip install robotframework-requests
           pip install robotframework-faker
+          pip install SeleniumLibrary
+          pip install String
+          pip install BuiltIn
 
       - name: Executando os testes WEB Robot Framework
         run: |
