@@ -8,10 +8,10 @@ Library    FakerLibrary    locale=pt_BR
 
 Abrir Navegador
     #Open Browser    browser=chrome  
-    Open Browser 
+    Open Browser    browser=firefox
     Set Selenium Implicit Wait    3
     Maximize Browser Window
-    #Go To    url=${Urlshogun}
+    Go To    url=${Urlshogun}
 
 Fechar Navegador
     Close Browser
