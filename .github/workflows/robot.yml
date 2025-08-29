@@ -15,10 +15,41 @@ jobs:
           python-version: '3.x'
 
           
-      - name: Install Firefox
+      - name: Add Mozilla PPA and install Firefox
         run: |
+          sudo apt-get update
+          sudo apt-get install -y software-properties-common
+          sudo add-apt-repository -y ppa:mozillateam/ppa
+          echo 'Package: *\nPin: release o=LP-PPA-mozillateam\nPin-Priority: 1001' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+          sudo apt-get update
           sudo apt-get install -y firefox
           firefox --version
+
+      - name: Install Firefox dependencies
+        run: |
+          sudo apt-get install -y \
+            fonts-liberation \
+            libatk-bridge2.0-0 \
+            libatk1.0-0 \
+            libatspi2.0-0 \
+            libcairo2 \
+            libcups2 \
+            libdbus-1-3 \
+            libdrm2 \
+            libgbm1 \
+            libglib2.0-0 \
+            libgtk-3-0 \
+            libnspr4 \
+            libnss3 \
+            libpango-1.0-0 \
+            libxcomposite1 \
+            libxdamage1 \
+            libxext6 \
+            libxfixes3 \
+            libxrandr2 \
+            libxrender1 \
+            libxtst6 \
+            xdg-utils
 
       - name: Install GeckoDriver
         run: |
@@ -28,7 +59,6 @@ jobs:
           sudo mv /tmp/geckodriver /usr/local/bin/geckodriver
           sudo chmod +x /usr/local/bin/geckodriver
           geckodriver --version
-
 
 
       - name: Instalar dependências
