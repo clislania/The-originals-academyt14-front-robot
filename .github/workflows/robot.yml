@@ -14,7 +14,11 @@ jobs:
         with:
           python-version: '3.x'
 
-          
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
       - name: Add Mozilla PPA and install Firefox
         run: |
           sudo apt-get update
@@ -52,8 +56,10 @@ jobs:
             xdg-utils
 
       - name: Install GeckoDriver
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          GECKO_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep tag_name | cut -d '"' -f 4)
+          GECKO_VERSION=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r '.tag_name')
           wget -N https://github.com/mozilla/geckodriver/releases/download/${GECKO_VERSION}/geckodriver-${GECKO_VERSION}-linux64.tar.gz -P /tmp
           tar -xzf /tmp/geckodriver-${GECKO_VERSION}-linux64.tar.gz -C /tmp
           sudo mv /tmp/geckodriver /usr/local/bin/geckodriver
