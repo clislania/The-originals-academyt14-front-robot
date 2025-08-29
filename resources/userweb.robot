@@ -15,9 +15,7 @@ Abrir Navegador
 
 Fechar Navegador
     Close Browser
-Passo 1 - Acessar a pagina de login
-    #Open Browser    browser=firefox
-    Go To    url=${Urlchips}
+
 
 Realizar Login administrativo
     wait Until Element Is Visible    ${emailInput}
