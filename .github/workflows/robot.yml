@@ -4,12 +4,12 @@ on:
 jobs:
   test:
     name: WEB test com Robot Framework
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Clonar arquivo do repositório
         uses: actions/checkout@v4
 
-      - name: Configurar Python 3.11
+      - name: Configurar Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
